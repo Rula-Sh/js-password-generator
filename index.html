@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <h1>Password Generator</h1>
+
+    <div>
+      <label>Password Length: </label>
+      <input type="number" id="password-length-input" min="4" />
+    </div>
+
+    <br />
+    <div class="container">
+      <span>
+        <input type="checkbox" id="small-checkbox" />
+        <label>Small Letters</label>
+      </span>
+
+      <span>
+        <input type="checkbox" id="capital-checkbox" />
+        <label>Capital Letters</label>
+      </span>
+    </div>
+    <br />
+    <div class="container">
+      <span>
+        <input type="checkbox" id="numbers-checkbox" />
+        <label>Numbers</label>
+      </span>
+
+      <span>
+        <input type="checkbox" id="symbols-checkbox" />
+        <label>Symbols</label>
+      </span>
+    </div>
+
+    <br />
+    <span id="error"></span>
+
+    <br />
+    <button onclick="generatePassword()">Generate</button>
+
+    <div id="result-container">
+      <div id="passowrd-field">
+        <p id="generated-password"></p>
+        <i class="bi bi-eye-fill eye" id="view-password"></i>
+        <i class="bi bi-eye-slash-fill eye display-none" id="hide-password"></i>
+      </div>
+      <i class="bi bi-clipboard display-none" id="copy-password"></i>
+    </div>
+    <script src="https://github.com/fent/randexp.js/releases/download/v0.4.3/randexp.min.js"></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>

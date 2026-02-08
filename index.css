@@ -1,0 +1,100 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
+  height: 100vh;
+  margin-top: -50px;
+  font-family: cursive;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.container {
+  width: 380px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+input[type="number"] {
+  width: 150px;
+  padding: 7px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  accent-color: rgb(166, 255, 0);
+}
+
+#error {
+  color: red;
+}
+
+button {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 7px;
+  border-radius: 8px;
+  background-color: rgb(166, 255, 0);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(140, 214, 3);
+  transition: 0.2px;
+}
+
+#result-container {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+#passowrd-field {
+  padding: 0 20px;
+  position: relative;
+  border: solid black 2px;
+  border-radius: 8px;
+  display: flex;
+  width: 230px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+i {
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  align-self: center;
+}
