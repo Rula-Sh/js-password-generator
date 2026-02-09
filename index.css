@@ -43,10 +43,6 @@ input[type="checkbox"] {
   accent-color: rgb(166, 255, 0);
 }
 
-#error {
-  color: red;
-}
-
 button {
   font-weight: bold;
   font-size: 18px;
@@ -97,4 +93,45 @@ i {
   top: 0;
   bottom: 0;
   align-self: center;
+}
+
+.pop-up {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  width: 20%;
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 25px;
+  padding: 13px;
+  font-size: 18px;
+  display: none;
+  animation-name: slide-left;
+  animation-duration: 0.8s;
+}
+
+.pop-up-icon {
+  font-size: 25px;
+  padding-right: 15px;
+  line-height: 1; /* to center the icon */
+}
+
+@keyframes slide-left {
+  0% {
+    right: -40%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes slide-right {
+  100% {
+    right: -40%;
+  }
+  0% {
+    right: 0;
+  }
 }

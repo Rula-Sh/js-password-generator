@@ -46,7 +46,6 @@
     </div>
 
     <br />
-    <span id="error"></span>
 
     <br />
     <button onclick="generatePassword()">Generate</button>
@@ -59,8 +58,14 @@
       </div>
       <i class="bi bi-clipboard display-none" id="copy-password"></i>
     </div>
-    <script src="https://github.com/fent/randexp.js/releases/download/v0.4.3/randexp.min.js"></script>
 
+    <div class="pop-up">
+      <i class="bi bi-check-circle-fill pop-up-icon" id="success"></i>
+      <i class="bi bi-exclamation-triangle-fill pop-up-icon" id="warning"></i>
+      <span class="pop-up-title"></span>
+    </div>
+
+    <script src="https://github.com/fent/randexp.js/releases/download/v0.4.3/randexp.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

@@ -4,7 +4,6 @@ function generatePassword() {
   const hasCapital = document.getElementById("capital-checkbox").checked;
   const hasNumbers = document.getElementById("numbers-checkbox").checked;
   const hasSymbols = document.getElementById("symbols-checkbox").checked;
-  const error = document.getElementById("error");
   const resultContainer = document.getElementById("result-container");
   const generatedPassword = document.getElementById("generated-password");
   const viewPasswordIcon = document.getElementById("view-password");
@@ -12,12 +11,11 @@ function generatePassword() {
   const copyPassword = document.getElementById("copy-password");
 
   if (passwordLength == "" || Number(passwordLength) < 4) {
-    error.textContent = "Password length must be at least 4 characters long";
+    showPopup(false, "Password length must be at least 4 characters long.");
     return;
   } else if (!hasSmall && !hasCapital && !hasNumbers && !hasSymbols) {
-    error.textContent = "Please check at least one conditon";
+    showPopup(false, "Please check at least one conditon.");
   } else {
-    error.textContent = "";
     const CHARSETS = {
       lowercase: "a-z",
       uppercase: "A-Z",
@@ -42,6 +40,7 @@ function generatePassword() {
     let newPassword = new RandExp(newRegex).gen();
     let hiddenPassword = () => "*".repeat(newPassword.length);
     resultContainer.style.display = "flex";
+    showPopup(true, "Password Generated!");
 
     viewPasswordIcon.addEventListener("click", () => {
       generatedPassword.textContent = newPassword;
@@ -64,4 +63,32 @@ function generatePassword() {
 
     hidePasswordIcon.click();
   }
+}
+
+function showPopup(isSucess, message) {
+  const popUp = document.querySelector(".pop-up");
+  const popUpTitle = document.querySelector(".pop-up-title");
+  const success = document.getElementById("success");
+  const warning = document.getElementById("warning");
+  if (isSucess) {
+    popUp.style.backgroundColor = "#c6ffbf";
+    success.style.color = "#00ff00";
+    success.style.display = "block";
+    warning.style.display = "none";
+  } else {
+    popUp.style.backgroundColor = "#fff8bf";
+    warning.style.color = "#ffe100";
+    warning.style.display = "block";
+    success.style.display = "none";
+  }
+  popUp.style.display = "flex";
+  popUp.style.animationName = "slide-left";
+  popUpTitle.textContent = message;
+
+  setTimeout(() => {
+    popUp.style.animationName = "slide-right";
+    setTimeout(() => {
+      popUp.style.display = "none";
+    }, 700);
+  }, 4000);
 }

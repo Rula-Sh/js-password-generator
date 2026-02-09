@@ -1,6 +1,6 @@
 # Password Generator 🔒
 
-A simple and interactive JavaScript password generator that creates secure passwords based on user-selected criteria. Users can choose to include lowercase letters, uppercase letters, numbers, and symbols. The project focuses on DOM manipulation, event handling, and string logic.
+A simple and interactive JavaScript password generator that creates secure passwords based on user-selected criteria. Users can choose to include lowercase letters, uppercase letters, numbers, and symbols. The project focuses on DOM manipulation, event handling, string logic, and user feedback through popup notifications.
 
 ## Features ✨
 
@@ -10,6 +10,10 @@ A simple and interactive JavaScript password generator that creates secure passw
   - Uppercase letters
   - Numbers
   - Symbols
+- Popup notifications for user feedback:
+  - Error when no character type is selected
+  - Success message when a password is generated
+  - Confirmation when password is copied
 - Dynamic UI updates using JavaScript
 - Clean and beginner-friendly code structure
 - Copy-to-clipboard functionality
@@ -23,6 +27,7 @@ A simple and interactive JavaScript password generator that creates secure passw
 - Styling with JavaScript `style.display`
 - Regular expressions `RegExp` `RandExp`
 - String manipulation `.replaceAll()` `.repeat`
+- UI feedback using custom popup notifations (success & warning)
 
 ## Programming Languages Used 🛠️
 
@@ -32,7 +37,7 @@ A simple and interactive JavaScript password generator that creates secure passw
 
 ## Dependencies 📦
 
-- **randexp.js (v0.5.3)** – Used to generate random strings based on regular expressions
+- **randexp.js (v0.5.3)** – Used to generate random strings based on regular expressions.
 
 ## Screenshot 📸
 
@@ -40,9 +45,4 @@ A simple and interactive JavaScript password generator that creates secure passw
 
 ## Planned Features 🚀
 
-- Popup notifications for user feedback:
-  - Error messages (e.g., no character type selected)
-  - Password generated successfully
-  - Password copied to clipboard
-- Improved password logic to ensure:
-  - At least one character from each selected option is included
+- Improve password logic to ensure at least one character from each selected option is included.
