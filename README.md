@@ -25,7 +25,7 @@ A simple and interactive JavaScript password generator that creates secure passw
 - Reading and updating values `.value` `.checked` `.textContent`
 - Conditional logic `if / else`
 - Styling with JavaScript `style.display`
-- Regular expressions `RegExp` `RandExp`
+- Regular expressions `RegExp`
 - String manipulation `.replaceAll()` `.repeat`
 - UI feedback using custom popup notifations (success & warning)
 
@@ -34,10 +34,6 @@ A simple and interactive JavaScript password generator that creates secure passw
 - HTML
 - CSS
 - JavaScript
-
-## Dependencies 📦
-
-- **randexp.js (v0.5.3)** – Used to generate random strings based on regular expressions.
 
 ## Screenshot 📸
 
