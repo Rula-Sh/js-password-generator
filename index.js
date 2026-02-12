@@ -1,9 +1,9 @@
 function generatePassword() {
   const passwordLength = document.getElementById("password-length-input").value;
-  const hasSmall = document.getElementById("small-checkbox").checked;
-  const hasCapital = document.getElementById("capital-checkbox").checked;
-  const hasNumbers = document.getElementById("numbers-checkbox").checked;
-  const hasSymbols = document.getElementById("symbols-checkbox").checked;
+  const includeLowercase = document.getElementById("small-checkbox").checked;
+  const includeUppercase = document.getElementById("capital-checkbox").checked;
+  const includeNumbers = document.getElementById("numbers-checkbox").checked;
+  const includeSymbols = document.getElementById("symbols-checkbox").checked;
   const resultContainer = document.getElementById("result-container");
   const generatedPassword = document.getElementById("generated-password");
   const viewPasswordIcon = document.getElementById("view-password");
@@ -13,32 +13,51 @@ function generatePassword() {
   if (passwordLength == "" || Number(passwordLength) < 4) {
     showPopup(false, "Password length must be at least 4 characters long.");
     return;
-  } else if (!hasSmall && !hasCapital && !hasNumbers && !hasSymbols) {
+  } else if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSymbols) {
     showPopup(false, "Please check at least one conditon.");
   } else {
     const CHARSETS = {
-      lowercase: "a-z",
-      uppercase: "A-Z",
-      numbers: "0-9",
-      symbols: "-!$%^&*()_+|~=`{}\\[\\]:\";'<>?,./",
+      lowercase: "abcdefghijklmnopqrstuvwxyz",
+      uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      numbers: "0123456789",
+      symbols: "-!$%^&*()_+|~=`{}[]:\";'<>?,./",
     };
     const checkedOptions = {
-      lowercase: hasSmall,
-      uppercase: hasCapital,
-      numbers: hasNumbers,
-      symbols: hasSymbols,
+      lowercase: includeLowercase,
+      uppercase: includeUppercase,
+      numbers: includeNumbers,
+      symbols: includeSymbols,
     };
 
-    let newRegex = "";
+    let selectedCharSets = [];
 
-    if (checkedOptions.lowercase) newRegex += CHARSETS.lowercase;
-    if (checkedOptions.uppercase) newRegex += CHARSETS.uppercase;
-    if (checkedOptions.numbers) newRegex += CHARSETS.numbers;
-    if (checkedOptions.symbols) newRegex += CHARSETS.symbols;
-    newRegex = new RegExp(`[${newRegex}]{${Number(passwordLength)}}`);
+    if (checkedOptions.lowercase) selectedCharSets.push(CHARSETS.lowercase);
+    if (checkedOptions.uppercase) selectedCharSets.push(CHARSETS.uppercase);
+    if (checkedOptions.numbers) selectedCharSets.push(CHARSETS.numbers);
+    if (checkedOptions.symbols) selectedCharSets.push(CHARSETS.symbols);
 
-    let newPassword = new RandExp(newRegex).gen();
-    let hiddenPassword = () => "*".repeat(newPassword.length);
+    let passwordChars = [];
+    for (const charSet of selectedCharSets) {
+      passwordChars.push(charSet[Math.floor(Math.random() * charSet.length)]);
+    }
+
+    const allChars = selectedCharSets.join("");
+
+    while (passwordChars.length < Number(passwordLength)) {
+      passwordChars.push(allChars[Math.floor(Math.random() * allChars.length)]);
+    }
+
+    for (let i = passwordChars.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [passwordChars[i], passwordChars[j]] = [
+        passwordChars[j],
+        passwordChars[i],
+      ];
+    }
+
+    const newPassword = passwordChars.join("");
+    const hiddenPassword = () => "*".repeat(newPassword.length);
+    console.log("newPassword: ", newPassword);
     resultContainer.style.display = "flex";
     showPopup(true, "Password Generated!");
 

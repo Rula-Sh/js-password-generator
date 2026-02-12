@@ -28,6 +28,7 @@ A simple and interactive JavaScript password generator that creates secure passw
 - Regular expressions `RegExp`
 - String manipulation `.replaceAll()` `.repeat`
 - UI feedback using custom popup notifations (success & warning)
+- Ensure at least one character from each selected option is included.
 
 ## Programming Languages Used 🛠️
 
@@ -38,7 +39,3 @@ A simple and interactive JavaScript password generator that creates secure passw
 ## Screenshot 📸
 
 ![Screenshot of the Password Generator interface](img/js-password-generator-screenshot.png)
-
-## Planned Features 🚀
-
-- Improve password logic to ensure at least one character from each selected option is included.
