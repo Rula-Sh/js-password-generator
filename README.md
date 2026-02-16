@@ -14,9 +14,10 @@ A simple and interactive JavaScript password generator that creates secure passw
   - Error when no character type is selected
   - Success message when a password is generated
   - Confirmation when password is copied
-- Dynamic UI updates using JavaScript
+- Ensure at least one character from each selected option is included.
 - Clean and beginner-friendly code structure
 - Copy-to-clipboard functionality
+- Dynamic UI updates using JavaScript
 
 ## Key Concepts Used 🧩
 
@@ -27,8 +28,6 @@ A simple and interactive JavaScript password generator that creates secure passw
 - Styling with JavaScript `style.display`
 - Regular expressions `RegExp`
 - String manipulation `.replaceAll()` `.repeat`
-- UI feedback using custom popup notifations (success & warning)
-- Ensure at least one character from each selected option is included.
 
 ## Programming Languages Used 🛠️
 
